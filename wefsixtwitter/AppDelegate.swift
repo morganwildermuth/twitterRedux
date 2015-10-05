@@ -23,11 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         
         if User.currentUser != nil {
-            //force it to go to login screen; time line
-            print("current user detected: \(User.currentUser?.name)")
-            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as! UIViewController
-            //the arrow in story board executes below line
-            window?.rootViewController = vc
+            let vc = storyboard.instantiateViewControllerWithIdentifier("Tweets")
+            let navCtrl = storyboard.instantiateInitialViewController() as! UINavigationController
+            navCtrl.viewControllers = [vc]
+            window?.rootViewController = navCtrl
         }
         return true
     }

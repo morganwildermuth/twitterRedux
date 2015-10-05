@@ -10,10 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loginImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        loginImageView.image = UIImage(named: "twitter-128")
+        loginImageView.userInteractionEnabled = true
 
     }
 
@@ -23,7 +26,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onLogin(sender: AnyObject) {
-        
         //could do User.login(completion) that calls this thing below
         
         TwitterClient.sharedInstance.loginWithCompletion() {
@@ -35,8 +37,6 @@ class ViewController: UIViewController {
                 //handle login error
             }
         }
-
-    
     }
 
 }

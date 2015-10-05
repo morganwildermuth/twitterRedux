@@ -33,7 +33,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         
         GET("1.1/statuses/home_timeline.json", parameters: params, success: {( operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             //                    print("home time line: \(response)")
-            var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
 
             completion(tweets: tweets, error: nil)
             }, failure: {( operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
@@ -73,7 +73,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
 
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: {( operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 //                    print("user: \(response)")
-                var user = User(dictionary: response as! NSDictionary)
+                let user = User(dictionary: response as! NSDictionary)
                 User.currentUser = user
                 print("user: \(user.name)")
                 self.loginCompletion?(user: user, error: nil)

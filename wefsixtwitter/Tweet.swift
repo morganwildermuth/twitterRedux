@@ -13,20 +13,27 @@ class Tweet: NSObject {
     var user: User?
     var text: String?
     var createdAtString: String?
-    var createdAt: NSDate?
+    var createdAt: String?
+    var createdAtDate: NSDate?
     var dictionary: NSDictionary
+    var profileImageUrl: String?
     
     init(dictionary: NSDictionary){
         self.dictionary = dictionary
-        
+        print("\(dictionary)")
         user = User(dictionary: dictionary["user"] as! NSDictionary)
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String
+        profileImageUrl = user!.dictionary["profile_image_url"] as? String
         
         //formatters really expensive, in general use static NSDateFormatter or have property createdAt lazy load for the first time
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-        createdAt = formatter.dateFromString(createdAtString!)
+        createdAtDate = formatter.dateFromString(createdAtString!)
+        formatter.dateFormat = "MMM d HH:mm:ss y"
+        createdAt = formatter.stringFromDate(createdAtDate!)
         
     }
     

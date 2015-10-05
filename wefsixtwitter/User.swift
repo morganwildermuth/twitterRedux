@@ -51,11 +51,11 @@ class User: NSObject {
     class var currentUser: User? {
         get {
             if _currentUser == nil {
-                var data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
+                let data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
         
                 if data != nil {
                     do {
-                        var dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
+                        let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
                         _currentUser = User(dictionary: dictionary as! NSDictionary)
                     } catch {
                         print("deserialization of user data errored")
@@ -69,7 +69,7 @@ class User: NSObject {
             
             if _currentUser != nil {
                 do {
-                    var data = try NSJSONSerialization.dataWithJSONObject(user!.dictionary, options: NSJSONWritingOptions(rawValue: 0))
+                    let data = try NSJSONSerialization.dataWithJSONObject(user!.dictionary, options: NSJSONWritingOptions(rawValue: 0))
                      NSUserDefaults.standardUserDefaults().setObject(data, forKey: currentUserKey)
                 } catch {
                     print("serialization of user data errored")

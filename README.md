@@ -7,6 +7,7 @@ Time spent: `5.5`
 - 2 hrs to follow through video tutorials
 - 3.5 hours to get the first 20 tweets showing decently with some kind of proto-design + color-scheme going on
 - 7 hours to pretty much finish (one thing left) and then to lose all my work because I am an idiot
+- 2 hours to get the detail view showing up with appropriate responses available (HORRIBLE view; at this point I'm late and I'm just getting it done. Shame level 10---I kept thinking this stupid README was a commit message and lost a crapton of work when everything went to hell)
 
 
 ### Features

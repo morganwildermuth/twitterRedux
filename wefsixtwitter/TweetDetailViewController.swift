@@ -11,10 +11,12 @@ import UIKit
 class TweetDetailViewController: UIViewController {
     var tweet: Tweet?
 
+    @IBOutlet weak var contentLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("fucking got here asshates")
-
+        print(tweet)
+        print("\(tweet?.text!)")
+        contentLabel.text = tweet?.text!
         // Do any additional setup after loading the view.
     }
 

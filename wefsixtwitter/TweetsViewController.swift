@@ -64,7 +64,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let tweets = self.tweets {
-            print(tweets.count)
             return tweets.count
         } else {
             return 0
@@ -72,7 +71,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tweetTable.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetTableViewCell
+        let cell = tweetTable.cellForRowAtIndexPath(indexPath) as! TweetTableViewCell
         performSegueWithIdentifier("segueToTweet", sender: cell)
     }
     
@@ -98,6 +97,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("in segue")
         if (segue.identifier == "segueToTweet"){
             let vc = segue.destinationViewController as! TweetDetailViewController
             vc.tweet = sender!.tweet

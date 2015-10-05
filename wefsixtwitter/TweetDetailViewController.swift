@@ -25,24 +25,9 @@ class TweetDetailViewController: UIViewController {
     
 
     @IBAction func onReply(sender: AnyObject) {
-        var statusText = "@\(tweet!.user!.screenname!) " + contentLabel.text!
-        let tweetArguments = ["status": statusText, "in_reply_to_status_id": String(tweet!.id)]
-        TwitterClient.sharedInstance.tweetWithParams(tweetArguments, completion: {(result, error) -> () in
-            if error != nil {
-                let alertController = UIAlertController(title: "Error", message: "Tweet Failed to Post", preferredStyle: .ActionSheet)
-                let cancelAction = UIAlertAction(title: "Exit", style: .Cancel, handler: nil)
-                alertController.addAction(cancelAction)
-                self.presentViewController(alertController, animated: true, completion: { () -> Void in
-                    print("\(result)")
-                })
-            } else {
-                let alertController = UIAlertController(title: "Success", message: "Tweet Posted", preferredStyle: .ActionSheet)
-                let cancelAction = UIAlertAction(title: "Exit", style: .Default, handler: nil)
-                alertController.addAction(cancelAction)
-                self.presentViewController(alertController, animated: true, completion: { () -> Void in })
-            }
-        })
+        performSegueWithIdentifier("segueToPost", sender: nil)
     }
+
     @IBAction func onFavorite(sender: AnyObject) {
         var tweetArguments = ["id": String(tweet!.id!)]
         TwitterClient.sharedInstance.favoriteWithParams(tweetArguments, completion: {(result, error) -> () in
@@ -78,6 +63,14 @@ class TweetDetailViewController: UIViewController {
                 self.presentViewController(alertController, animated: true, completion: { () -> Void in })
             }
         })
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segueToPost"){
+            let vc = segue.destinationViewController as! PostViewController
+            vc.tweet = self.tweet
+            vc.mode = "reply"
+        }
     }
     /*
     // MARK: - Navigation

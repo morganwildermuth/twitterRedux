@@ -97,7 +97,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("in segue")
         if (segue.identifier == "segueToTweet"){
             let vc = segue.destinationViewController as! TweetDetailViewController
             vc.tweet = sender!.tweet

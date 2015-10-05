@@ -174,17 +174,17 @@
                         <viewControllerLayoutGuide type="bottom" id="Y8Q-RX-Jkh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rXJ-w1-Xjb">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXK-vk-D8L">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXK-vk-D8L">
                                 <rect key="frame" x="279" y="368" width="42" height="30"/>
                                 <state key="normal" title="Tweet"/>
                                 <connections>
                                     <action selector="onTapTweet:" destination="6Q2-k2-8BD" eventType="touchUpInside" id="1US-Zx-RYb"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cVn-HR-8AU">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cVn-HR-8AU">
                                 <rect key="frame" x="20" y="243" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vgT-3s-sDQ"/>
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCq-Xb-Jhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3508" y="192"/>
+            <point key="canvasLocation" x="4280" y="460"/>
         </scene>
         <!--Tweet Detail View Controller-->
         <scene sceneID="Ol2-qV-KjK">
@@ -289,11 +289,12 @@
                     <navigationItem key="navigationItem" id="XqB-Hi-mqL"/>
                     <connections>
                         <outlet property="contentLabel" destination="gAD-SZ-CRV" id="Yit-QD-WYe"/>
+                        <segue destination="6Q2-k2-8BD" kind="presentation" identifier="segueToPost" id="zvt-oe-ahF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMO-rm-vFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3508" y="933"/>
+            <point key="canvasLocation" x="3665" y="1189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dBX-PO-sIe">
@@ -335,5 +336,8 @@
             <point key="canvasLocation" x="2032" y="475"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zvt-oe-ahF"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.26561643369999999" green="0.67123252470000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -14,8 +14,6 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tweet)
-        print("\(tweet?.text!)")
         contentLabel.text = tweet?.text!
         // Do any additional setup after loading the view.
     }
@@ -26,6 +24,61 @@ class TweetDetailViewController: UIViewController {
     }
     
 
+    @IBAction func onReply(sender: AnyObject) {
+        var statusText = "@\(tweet!.user!.screenname!) " + contentLabel.text!
+        let tweetArguments = ["status": statusText, "in_reply_to_status_id": String(tweet!.id)]
+        TwitterClient.sharedInstance.tweetWithParams(tweetArguments, completion: {(result, error) -> () in
+            if error != nil {
+                let alertController = UIAlertController(title: "Error", message: "Tweet Failed to Post", preferredStyle: .ActionSheet)
+                let cancelAction = UIAlertAction(title: "Exit", style: .Cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                self.presentViewController(alertController, animated: true, completion: { () -> Void in
+                    print("\(result)")
+                })
+            } else {
+                let alertController = UIAlertController(title: "Success", message: "Tweet Posted", preferredStyle: .ActionSheet)
+                let cancelAction = UIAlertAction(title: "Exit", style: .Default, handler: nil)
+                alertController.addAction(cancelAction)
+                self.presentViewController(alertController, animated: true, completion: { () -> Void in })
+            }
+        })
+    }
+    @IBAction func onFavorite(sender: AnyObject) {
+        var tweetArguments = ["id": String(tweet!.id!)]
+        TwitterClient.sharedInstance.favoriteWithParams(tweetArguments, completion: {(result, error) -> () in
+            if error != nil {
+                let alertController = UIAlertController(title: "Error", message: "Tweet Failed to Favorite", preferredStyle: .ActionSheet)
+                let cancelAction = UIAlertAction(title: "Exit", style: .Cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                self.presentViewController(alertController, animated: true, completion: { () -> Void in
+                    print("\(result)")
+                })
+            } else {
+                let alertController = UIAlertController(title: "Success", message: "Tweet Favorited", preferredStyle: .ActionSheet)
+                let cancelAction = UIAlertAction(title: "Exit", style: .Default, handler: nil)
+                alertController.addAction(cancelAction)
+                self.presentViewController(alertController, animated: true, completion: { () -> Void in })
+            }
+        })
+    }
+    
+    @IBAction func onRetweet(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweetWithParams(String(tweet!.id!), completion: {(result, error) -> () in
+            if error != nil {
+                let alertController = UIAlertController(title: "Error", message: "Tweet Failed to Retweet", preferredStyle: .ActionSheet)
+                let cancelAction = UIAlertAction(title: "Exit", style: .Cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                self.presentViewController(alertController, animated: true, completion: { () -> Void in
+                    print("\(result)")
+                })
+            } else {
+                let alertController = UIAlertController(title: "Success", message: "Tweet Retweeted", preferredStyle: .ActionSheet)
+                let cancelAction = UIAlertAction(title: "Exit", style: .Default, handler: nil)
+                alertController.addAction(cancelAction)
+                self.presentViewController(alertController, animated: true, completion: { () -> Void in })
+            }
+        })
+    }
     /*
     // MARK: - Navigation
 

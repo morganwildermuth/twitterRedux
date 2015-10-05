@@ -234,10 +234,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxS-d6-c1S">
                                 <rect key="frame" x="8" y="253" width="55" height="30"/>
                                 <state key="normal" title="Favorite"/>
+                                <connections>
+                                    <action selector="onFavorite:" destination="sNp-jO-DV9" eventType="touchUpInside" id="s88-A1-qgn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXZ-JX-sgo">
                                 <rect key="frame" x="8" y="383" width="39" height="30"/>
                                 <state key="normal" title="Reply"/>
+                                <connections>
+                                    <action selector="onReply:" destination="sNp-jO-DV9" eventType="touchUpInside" id="WXC-5l-kEe"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHK-MR-rBw">
                                 <rect key="frame" x="74" y="0.0" width="526" height="536"/>
@@ -261,6 +267,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuN-is-R3b">
                                 <rect key="frame" x="8" y="100" width="56" height="53"/>
                                 <state key="normal" title="Retweet"/>
+                                <connections>
+                                    <action selector="onRetweet:" destination="sNp-jO-DV9" eventType="touchUpInside" id="0tO-8I-58o"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

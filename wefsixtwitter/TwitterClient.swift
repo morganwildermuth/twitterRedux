@@ -51,6 +51,30 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                 })
     }
     
+    func retweetWithParams(id: String?, completion: (result: NSDictionary?, error: NSError?) -> ()){
+        var endPoint = "1.1/statuses/retweet/" + id! + ".json"
+        POST(endPoint, parameters: nil, success: {( operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            print("retweeted success")
+            completion(result: response as? NSDictionary, error: nil)
+            }, failure: {( operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print("error retweeting")
+                print(error)
+                completion(result: nil, error: error)
+        })
+    }
+    
+    func favoriteWithParams(parameters: NSDictionary?, completion: (result: NSDictionary?, error: NSError?) -> ()){
+        var endPoint = "1.1/favorites/create.json"
+        POST(endPoint, parameters: parameters!, success: {( operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            print("favorite success")
+            completion(result: response as? NSDictionary, error: nil)
+            }, failure: {( operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print("error favoriting")
+                completion(result: nil, error: error)
+        })
+        
+    }
+    
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()){
         loginCompletion = completion;
         

@@ -17,9 +17,11 @@ class Tweet: NSObject {
     var createdAtDate: NSDate?
     var dictionary: NSDictionary
     var profileImageUrl: String?
+    var id: Int?
     
     init(dictionary: NSDictionary){
         self.dictionary = dictionary
+        self.id = dictionary["id"] as! Int
         print("\(dictionary)")
         user = User(dictionary: dictionary["user"] as! NSDictionary)
         text = dictionary["text"] as? String

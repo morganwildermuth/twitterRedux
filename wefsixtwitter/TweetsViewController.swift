@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate{
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, TweetTableViewCellDelegate{
 
     var tweets: [Tweet]?
     var refreshControl: UIRefreshControl!
@@ -32,6 +32,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
+    }
+    
+    func tweetTableViewCell(tweetCell: TweetTableViewCell) {
+        performSegueWithIdentifier("segueToPost", sender: tweetCell)
     }
     
     func refresh(sender: AnyObject){
@@ -59,6 +63,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tweetTable.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetTableViewCell
         cell.tweet = tweets![indexPath.row]
         cell.setData()
+        cell.delegate = self
         return cell
     }
     
@@ -79,6 +84,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         return 1
     }
     
+
+
     private func setupRefreshController(){
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -100,6 +107,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         if (segue.identifier == "segueToTweet"){
             let vc = segue.destinationViewController as! TweetDetailViewController
             vc.tweet = sender!.tweet
+        }
+        if (segue.identifier == "segueToPost"){
+            let vc = segue.destinationViewController as! PostViewController
+            if let tweet = sender?.tweet {
+                vc.tweet = sender!.tweet
+                vc.mode = "reply"
+            } else {
+                vc.mode = "new"
+            }
+
         }
     }
     /*

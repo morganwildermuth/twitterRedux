@@ -36,6 +36,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             completion(tweets: tweets, error: nil)
             }, failure: {( operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 print("error getting home time line")
+                print(error)
                 completion(tweets: nil, error: error)
         })
         

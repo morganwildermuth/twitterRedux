@@ -7,6 +7,13 @@
 //
 
 import UIKit
+@objc protocol TweetTableViewCellDelegate {
+    optional func tweetTableViewCell(tweetCell: TweetTableViewCell)
+    // too late and tired to implement, but the below is a good idea since then I can do the wee alerts like before
+//    optional func favoriteTweetTableViewCell(tweetCell: TweetTableViewCell)
+//    optional func replyTweetTableViewCell(tweetCell: TweetTableViewCell)
+    
+}
 
 class TweetTableViewCell: UITableViewCell {
     
@@ -16,6 +23,7 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    weak var delegate: TweetTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +38,31 @@ class TweetTableViewCell: UITableViewCell {
 
     // does not seem to be best practices to use init here...?
     // thought perhaps a computed property for tweet that would then set these during the get
+
+    @IBAction func onFavoriteTap(sender: AnyObject) {
+        var tweetArguments = ["id": String(tweet!.id!)]
+        TwitterClient.sharedInstance.favoriteWithParams(tweetArguments, completion: {(result, error) -> () in
+            if error != nil {
+                print("fav fail")
+            } else {
+                print("fav success)")
+            }
+        })
+    }
+    
+    @IBAction func onReplyTap(sender: AnyObject) {
+        delegate?.tweetTableViewCell?(self)
+    }
+    
+    @IBAction func onRetweetTap(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweetWithParams(String(tweet!.id!), completion: {(result, error) -> () in
+            if error != nil {
+                print("retweet fail")
+            } else {
+                print("retweet success")
+            }
+        })
+    }
     
     func setData(){
         userLabel.text = tweet?.user?.name

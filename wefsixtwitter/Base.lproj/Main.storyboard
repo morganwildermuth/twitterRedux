@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="k5P-oA-RGy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -151,17 +150,15 @@
                                 <action selector="onLogout:" destination="Odh-Tw-Qc1" id="awy-HH-ECb"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Tweet" id="NRI-X1-b4G">
-                                <connections>
-                                    <segue destination="6Q2-k2-8BD" kind="show" id="VY7-dg-Wdb"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" id="QbV-gn-vVe"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="NRI-X1-b4G">
+                            <connections>
+                                <segue destination="6Q2-k2-8BD" kind="show" id="VY7-dg-Wdb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tweetTable" destination="Ppx-Tm-1dh" id="VwT-au-eFd"/>
+                        <segue destination="sNp-jO-DV9" kind="presentation" identifier="segueToTweet" id="7JI-AD-zhG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB3-cj-BNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,6 +218,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCq-Xb-Jhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3508" y="192"/>
+        </scene>
+        <!--Tweet Detail View Controller-->
+        <scene sceneID="Ol2-qV-KjK">
+            <objects>
+                <viewController id="sNp-jO-DV9" customClass="TweetDetailViewController" customModule="wefsixtwitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CPF-NK-h6I"/>
+                        <viewControllerLayoutGuide type="bottom" id="ONk-o4-07J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3ka-0R-gPS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMO-rm-vFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3508" y="933"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dBX-PO-sIe">

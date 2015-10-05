@@ -71,6 +71,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tweetTable.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetTableViewCell
+        performSegueWithIdentifier("segueToTweet", sender: cell)
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -86,11 +91,18 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: {(tweets, error) -> () in
             self.tweets = tweets
             self.tweetTable.reloadData()
-            self.tweetTable.rowHeight = UITableViewAutomaticDimension
-            self.tweetTable.estimatedRowHeight = 400
+            self.refreshControl.endRefreshing()
+//            self.tweetTable.rowHeight = UITableViewAutomaticDimension
+//            self.tweetTable.estimatedRowHeight = 400
         })
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segueToTweet"){
+            let vc = segue.destinationViewController as! TweetDetailViewController
+            vc.tweet = sender!.tweet
+        }
+    }
     /*
     // MARK: - Navigation
 

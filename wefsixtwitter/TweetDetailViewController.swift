@@ -9,9 +9,11 @@
 import UIKit
 
 class TweetDetailViewController: UIViewController {
+    var tweet: Tweet?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("fucking got here asshates")
 
         // Do any additional setup after loading the view.
     }

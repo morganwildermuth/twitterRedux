@@ -11,6 +11,7 @@ import UIKit
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate{
 
     var tweets: [Tweet]?
+    var refreshControl: UIRefreshControl!
     @IBOutlet weak var tweetTable: UITableView!
     
     override func viewDidLoad() {
@@ -19,12 +20,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tweetTable.dataSource = self
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: {(tweets, error) -> () in
-            self.tweets = tweets
-            self.tweetTable.reloadData()
-            self.tweetTable.rowHeight = UITableViewAutomaticDimension
-            self.tweetTable.estimatedRowHeight = 400
-        })
+        loadData()
+        setupRefreshController()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +32,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
+    }
+    
+    func refresh(sender: AnyObject){
+        loadData()
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -71,6 +73,22 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    private func setupRefreshController(){
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tweetTable.addSubview(refreshControl)
+    }
+
+    private func loadData(){
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: {(tweets, error) -> () in
+            self.tweets = tweets
+            self.tweetTable.reloadData()
+            self.tweetTable.rowHeight = UITableViewAutomaticDimension
+            self.tweetTable.estimatedRowHeight = 400
+        })
     }
 
     /*

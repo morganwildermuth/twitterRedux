@@ -15,19 +15,12 @@ class ContainerViewController: UIViewController {
     let mentionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Mentions")
     
     var selectedViewController: UIViewController?
+    var viewControllerIds = ["Profile", "Tweets", "Mentions"]
     
-    //includes profile, timeline, mentions
-//    var mentionsViewController =  UIStoryboard(name: "mentionsViewController", bundle: nil).instantiateViewControllerWithIdentifier("MentionsViewController") as! MentionsViewController
-    
-//    let viewController = [
-//        ProfileViewController(nibName: nil, bundle: nil),
-//        TweetsViewController(nibName: nil, bundle: nil),
-//        MentionsViewController(nibName: nil, bundle: nil)
-//    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.selectViewController(mentionsVC)
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[2]))
         // Do any additional setup after loading the view.
     }
 
@@ -43,13 +36,6 @@ class ContainerViewController: UIViewController {
             oldViewController.removeFromParentViewController()
         }
         self.addChildViewController(viewController)
-        print(viewController)
-        print(viewController.view)
-        print(viewController.view.frame)
-        print("after frame")
-        print(self)
-        print(self.containerView)
-        print(self.containerView.bounds)
         viewController.view.frame = self.containerView.bounds
         viewController.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.containerView.addSubview(viewController.view)
@@ -57,7 +43,17 @@ class ContainerViewController: UIViewController {
         selectedViewController = viewController
     }
     
+    @IBAction func onTapProfileButton(sender: AnyObject) {
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[0]))
+    }
 
+    @IBAction func onTapTimelineButton(sender: AnyObject) {
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[1]))
+    }
+    
+    @IBAction func onTapMentionsButton(sender: AnyObject) {
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[2]))
+    }
     /*
     // MARK: - Navigation
 

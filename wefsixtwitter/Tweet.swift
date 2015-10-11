@@ -22,7 +22,6 @@ class Tweet: NSObject {
     init(dictionary: NSDictionary){
         self.dictionary = dictionary
         self.id = dictionary["id"] as! Int
-        print("\(dictionary)")
         user = User(dictionary: dictionary["user"] as! NSDictionary)
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String

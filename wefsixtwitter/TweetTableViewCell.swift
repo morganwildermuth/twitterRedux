@@ -8,7 +8,8 @@
 
 import UIKit
 @objc protocol TweetTableViewCellDelegate {
-    optional func tweetTableViewCell(tweetCell: TweetTableViewCell)
+    optional func tweetTableViewCellOpenUserProfile(tweetCell: TweetTableViewCell)
+    optional func tweetTableViewCellSegueToPost(tweetCell: TweetTableViewCell)
     // too late and tired to implement, but the below is a good idea since then I can do the wee alerts like before
 //    optional func favoriteTweetTableViewCell(tweetCell: TweetTableViewCell)
 //    optional func replyTweetTableViewCell(tweetCell: TweetTableViewCell)
@@ -41,7 +42,9 @@ class TweetTableViewCell: UITableViewCell {
     // thought perhaps a computed property for tweet that would then set these during the get
 
     @IBAction func onTapUserImage(sender: AnyObject) {
-        print("got the tap")
+       //we want to say, hey, you, ContainerViewController, handle this specific selectViewController
+        print("got here 1")
+        delegate?.tweetTableViewCellOpenUserProfile?(self)
     }
     
     
@@ -57,7 +60,7 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     @IBAction func onReplyTap(sender: AnyObject) {
-        delegate?.tweetTableViewCell?(self)
+        delegate?.tweetTableViewCellSegueToPost?(self)
     }
     
     @IBAction func onRetweetTap(sender: AnyObject) {

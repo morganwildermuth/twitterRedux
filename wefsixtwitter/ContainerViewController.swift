@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+class ContainerViewController: UIViewController, TweetsViewControllerDelegate{
     
     @IBOutlet weak var containerViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
@@ -17,7 +17,6 @@ class ContainerViewController: UIViewController {
     var containerViewCenter: CGPoint?
     var selectedViewController: UIViewController?
     var viewControllerIds = ["Profile", "Tweets", "Mentions"]
-
     
 
     override func viewWillAppear(animated: Bool) {
@@ -37,6 +36,7 @@ class ContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func selectViewController(viewController: UIViewController){
         if let oldViewController = selectedViewController{
             oldViewController.willMoveToParentViewController(nil)
@@ -51,25 +51,9 @@ class ContainerViewController: UIViewController {
         selectedViewController = viewController
     }
     
-//    func openUserProfile(user: User?){
-//        var viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Profile") as? ProfileViewController
-//        if let oldViewController = selectedViewController{
-//            oldViewController.willMoveToParentViewController(nil)
-//            oldViewController.view.removeFromSuperview()
-//            oldViewController.removeFromParentViewController()
-//        }
-//        self.addChildViewController(viewController!)
-//        if let profileUser = user {
-//            if var viewControllerUser = viewController!.user{
-//                viewControllerUser = user!
-//            }
-//        }
-//        viewController!.view.frame = self.containerView.bounds
-//        viewController!.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-//        self.containerView.addSubview(viewController!.view)
-//        viewController!.didMoveToParentViewController(self)
-//        selectedViewController = viewController
-//    }
+    func tweetsViewController(tweetsViewController: TweetsViewController) {
+        print("got here to twv")
+    }
     
     @IBAction func onPanRootView(sender: UIPanGestureRecognizer) {
         let panGestureRecognizer = sender
@@ -98,7 +82,9 @@ class ContainerViewController: UIViewController {
     }
 
     @IBAction func onTapTimelineButton(sender: AnyObject) {
-        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[1]))
+        var tweetsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[1]) as? TweetsViewController
+        tweetsController!.delegate = self
+        self.selectViewController(tweetsController!)
     }
     
     @IBAction func onTapMentionsButton(sender: AnyObject) {

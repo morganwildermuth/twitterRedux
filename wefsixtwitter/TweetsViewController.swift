@@ -8,10 +8,21 @@
 
 import UIKit
 
+@objc protocol TweetsViewControllerDelegate {
+    optional func tweetsViewController(tweetsViewController: TweetsViewController)
+    
+    // too late and tired to implement, but the below is a good idea since then I can do the wee alerts like before
+    //    optional func favoriteTweetTableViewCell(tweetCell: TweetTableViewCell)
+    //    optional func replyTweetTableViewCell(tweetCell: TweetTableViewCell)
+    
+}
+
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, TweetTableViewCellDelegate{
 
     var tweets: [Tweet]?
     var refreshControl: UIRefreshControl!
+    weak var delegate: TweetsViewControllerDelegate?
+    
     @IBOutlet weak var tweetTable: UITableView!
     
     override func viewDidLoad() {
@@ -34,8 +45,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         User.currentUser?.logout()
     }
     
-    func tweetTableViewCell(tweetCell: TweetTableViewCell) {
+    func tweetTableViewCellSegueToPost(tweetCell: TweetTableViewCell) {
         performSegueWithIdentifier("segueToPost", sender: tweetCell)
+    }
+    
+    func tweetTableViewCellOpenUserProfile(tweetCell: TweetTableViewCell) {
+        print("got here2")
+        delegate?.tweetsViewController?(self)
     }
     
     func refresh(sender: AnyObject){

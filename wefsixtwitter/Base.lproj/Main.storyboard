@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" id="jDi-U1-L82"/>
                     <connections>
                         <outlet property="loginImageView" destination="MLh-S3-FNS" id="ab3-dm-G8q"/>
-                        <segue destination="jK8-D5-h8O" kind="presentation" identifier="loginSegue" id="zb2-Dx-nSH"/>
+                        <segue destination="a3F-u5-bpC" kind="presentation" identifier="loginSegue" id="zb2-Dx-nSH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB3-cj-BNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3315" y="460"/>
+            <point key="canvasLocation" x="4127" y="460"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="m7D-i8-3op">
@@ -271,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCq-Xb-Jhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4280" y="460"/>
+            <point key="canvasLocation" x="5092" y="460"/>
         </scene>
         <!--Tweet Detail View Controller-->
         <scene sceneID="Ol2-qV-KjK">
@@ -401,7 +401,7 @@
         <!--Container View Controller-->
         <scene sceneID="UQ2-Rg-2xz">
             <objects>
-                <viewController id="jK8-D5-h8O" customClass="ContainerViewController" customModule="wefsixtwitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Menu" id="jK8-D5-h8O" customClass="ContainerViewController" customModule="wefsixtwitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bTc-Vt-Ouv"/>
                         <viewControllerLayoutGuide type="bottom" id="i0G-rZ-JSw"/>
@@ -410,24 +410,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-8x-isw">
-                                <rect key="frame" x="47" y="0.0" width="553" height="600"/>
-                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVj-Q2-tpL">
-                                <rect key="frame" x="0.0" y="0.0" width="47" height="600"/>
+                                <rect key="frame" x="0.0" y="64" width="47" height="536"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hM6-71-dMn">
-                                        <rect key="frame" x="8" y="57" width="30" height="30"/>
-                                        <state key="normal" title="P">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onTapProfileButton:" destination="jK8-D5-h8O" eventType="touchUpInside" id="6Da-V5-0gX"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1U4-q3-wlh">
-                                        <rect key="frame" x="8" y="129" width="30" height="30"/>
+                                        <rect key="frame" x="8" y="226" width="30" height="30"/>
                                         <state key="normal" title="T">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -436,7 +423,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylj-Ni-rYe">
-                                        <rect key="frame" x="8" y="216" width="30" height="30"/>
+                                        <rect key="frame" x="8" y="401" width="30" height="30"/>
                                         <state key="normal" title="M">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -444,11 +431,24 @@
                                             <action selector="onTapMentionsButton:" destination="jK8-D5-h8O" eventType="touchUpInside" id="nSa-pt-alQ"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hM6-71-dMn">
+                                        <rect key="frame" x="8" y="122" width="30" height="30"/>
+                                        <state key="normal" title="P">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapProfileButton:" destination="jK8-D5-h8O" eventType="touchUpInside" id="6Da-V5-0gX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.26561643369999999" green="0.67123252470000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="zRf-mQ-fHY"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-8x-isw">
+                                <rect key="frame" x="47" y="64" width="553" height="536"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -458,18 +458,30 @@
                             <constraint firstItem="kVj-Q2-tpL" firstAttribute="top" secondItem="2np-yH-CeF" secondAttribute="top" id="Fbd-nx-pfF"/>
                             <constraint firstItem="Fbu-8x-isw" firstAttribute="leading" secondItem="kVj-Q2-tpL" secondAttribute="trailing" id="Gch-43-jKi"/>
                             <constraint firstItem="i0G-rZ-JSw" firstAttribute="top" secondItem="kVj-Q2-tpL" secondAttribute="bottom" id="HwU-KO-M4X"/>
+                            <constraint firstItem="Fbu-8x-isw" firstAttribute="top" secondItem="bTc-Vt-Ouv" secondAttribute="bottom" id="giO-fw-YZo"/>
                             <constraint firstAttribute="trailing" secondItem="Fbu-8x-isw" secondAttribute="trailing" id="jYa-jB-TZT"/>
+                            <constraint firstItem="kVj-Q2-tpL" firstAttribute="top" secondItem="bTc-Vt-Ouv" secondAttribute="bottom" id="rCp-66-sMx"/>
                             <constraint firstItem="kVj-Q2-tpL" firstAttribute="leading" secondItem="2np-yH-CeF" secondAttribute="leading" id="wmv-op-INh"/>
                             <constraint firstItem="Fbu-8x-isw" firstAttribute="leading" secondItem="kVj-Q2-tpL" secondAttribute="trailing" id="z3K-DP-bwy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fbd-nx-pfF"/>
+                                <exclude reference="1Qt-KD-5GI"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="Xgb-hS-mr7">
+                        <barButtonItem key="leftBarButtonItem" title="🚪" id="65E-3S-Mx5"/>
+                        <barButtonItem key="rightBarButtonItem" title="📝" id="w2s-z8-vu9"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="Fbu-8x-isw" id="859-Qg-XeT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbI-o7-IFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1986" y="480"/>
+            <point key="canvasLocation" x="2798" y="480"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="iwc-AT-vaH">
@@ -516,7 +528,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7f-89-Sgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2684" y="466"/>
+            <point key="canvasLocation" x="3496" y="466"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ufv-6S-rE2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a3F-u5-bpC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gyv-5l-ZJu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jK8-D5-h8O" kind="relationship" relationship="rootViewController" id="5RG-Fe-D8e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cuk-We-SAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="480"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

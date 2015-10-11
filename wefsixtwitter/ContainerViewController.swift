@@ -15,11 +15,9 @@ class ContainerViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     var menuCenter: CGPoint?
     var containerViewCenter: CGPoint?
-    let tweetsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Tweets")
-    let mentionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Mentions")
-    
     var selectedViewController: UIViewController?
     var viewControllerIds = ["Profile", "Tweets", "Mentions"]
+
     
 
     override func viewWillAppear(animated: Bool) {
@@ -53,6 +51,26 @@ class ContainerViewController: UIViewController {
         selectedViewController = viewController
     }
     
+//    func openUserProfile(user: User?){
+//        var viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Profile") as? ProfileViewController
+//        if let oldViewController = selectedViewController{
+//            oldViewController.willMoveToParentViewController(nil)
+//            oldViewController.view.removeFromSuperview()
+//            oldViewController.removeFromParentViewController()
+//        }
+//        self.addChildViewController(viewController!)
+//        if let profileUser = user {
+//            if var viewControllerUser = viewController!.user{
+//                viewControllerUser = user!
+//            }
+//        }
+//        viewController!.view.frame = self.containerView.bounds
+//        viewController!.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+//        self.containerView.addSubview(viewController!.view)
+//        viewController!.didMoveToParentViewController(self)
+//        selectedViewController = viewController
+//    }
+    
     @IBAction func onPanRootView(sender: UIPanGestureRecognizer) {
         let panGestureRecognizer = sender
         if panGestureRecognizer.state == UIGestureRecognizerState.Began {
@@ -74,7 +92,7 @@ class ContainerViewController: UIViewController {
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Ended {
         }
     }
-        
+    
     @IBAction func onTapProfileButton(sender: AnyObject) {
         self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[0]))
     }

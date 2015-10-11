@@ -25,6 +25,7 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     weak var delegate: TweetTableViewCellDelegate?
 
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,6 +40,11 @@ class TweetTableViewCell: UITableViewCell {
     // does not seem to be best practices to use init here...?
     // thought perhaps a computed property for tweet that would then set these during the get
 
+    @IBAction func onTapUserImage(sender: AnyObject) {
+        print("got the tap")
+    }
+    
+    
     @IBAction func onFavoriteTap(sender: AnyObject) {
         var tweetArguments = ["id": String(tweet!.id!)]
         TwitterClient.sharedInstance.favoriteWithParams(tweetArguments, completion: {(result, error) -> () in

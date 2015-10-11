@@ -84,13 +84,6 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-cT-Xh6">
-                                                    <rect key="frame" x="8" y="8" width="48" height="48"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="48" id="azw-dg-YhO"/>
-                                                        <constraint firstAttribute="width" constant="48" id="yeb-cP-V2j"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="280" verticalHuggingPriority="280" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" text="I am a tweet!" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szv-3n-PL6">
                                                     <rect key="frame" x="8" y="90" width="564" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -118,10 +111,29 @@
                                                         <action selector="onRetweetTap:" destination="qm4-uB-etl" eventType="touchUpInside" id="xHJ-KH-Qec"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UnJ-G3-Skb">
+                                                    <rect key="frame" x="8" y="8" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="9VN-Hy-jbp"/>
+                                                        <constraint firstAttribute="width" constant="48" id="LjM-Ik-R8S"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="onTapUserImage:" destination="qm4-uB-etl" eventType="touchUpInside" id="stD-tQ-zFT"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-cT-Xh6">
+                                                    <rect key="frame" x="8" y="8" width="48" height="48"/>
+                                                    <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="azw-dg-YhO"/>
+                                                        <constraint firstAttribute="width" constant="48" id="yeb-cP-V2j"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="39v-5N-YlF" firstAttribute="leading" secondItem="y3Z-cT-Xh6" secondAttribute="trailing" constant="8" id="12h-qI-G2C"/>
                                                 <constraint firstAttribute="bottom" secondItem="cTa-7f-Sve" secondAttribute="bottom" constant="8" id="2UM-6T-nSy"/>
+                                                <constraint firstItem="UnJ-G3-Skb" firstAttribute="top" secondItem="3uj-bB-Cn2" secondAttribute="top" constant="8" id="2VL-9h-nxC"/>
                                                 <constraint firstItem="39v-5N-YlF" firstAttribute="top" secondItem="3uj-bB-Cn2" secondAttribute="top" constant="8" id="2Zr-13-qLG"/>
                                                 <constraint firstAttribute="trailing" secondItem="szv-3n-PL6" secondAttribute="trailing" constant="8" id="3j9-98-rDn"/>
                                                 <constraint firstItem="39v-5N-YlF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y3Z-cT-Xh6" secondAttribute="trailing" constant="8" id="Do6-WS-Yia"/>
@@ -147,6 +159,7 @@
                                                 <constraint firstItem="cTa-7f-Sve" firstAttribute="top" secondItem="3uj-bB-Cn2" secondAttribute="top" constant="39" id="dZd-6x-nNZ"/>
                                                 <constraint firstItem="JV1-ZD-qTi" firstAttribute="leading" secondItem="cTa-7f-Sve" secondAttribute="trailing" constant="2" id="f6t-Ot-1tF"/>
                                                 <constraint firstItem="coh-AN-hwk" firstAttribute="leading" secondItem="PJG-va-sQT" secondAttribute="trailing" constant="8" id="g8b-nP-1UE"/>
+                                                <constraint firstItem="UnJ-G3-Skb" firstAttribute="leading" secondItem="3uj-bB-Cn2" secondAttribute="leading" constant="8" id="gwc-8d-8h8"/>
                                                 <constraint firstItem="szv-3n-PL6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JV1-ZD-qTi" secondAttribute="bottom" constant="8" id="mQc-tZ-2ug"/>
                                                 <constraint firstItem="y3Z-cT-Xh6" firstAttribute="leading" secondItem="3uj-bB-Cn2" secondAttribute="leading" constant="8" id="qli-Li-bwI"/>
                                                 <constraint firstItem="szv-3n-PL6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3Z-cT-Xh6" secondAttribute="bottom" constant="20" id="rhY-pV-MSi"/>

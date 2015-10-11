@@ -62,10 +62,8 @@ class ContainerViewController: UIViewController {
             let velocity = sender.velocityInView(sender.view)
             
             if velocity.x > 0.0 {
-                print("velocity was above 0")
                 self.containerViewWidthConstraint.constant = 300
             } else {
-                print("velocity was below 0")
                 self.containerViewWidthConstraint.constant = 0
             }
             

@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" id="jDi-U1-L82"/>
                     <connections>
                         <outlet property="loginImageView" destination="MLh-S3-FNS" id="ab3-dm-G8q"/>
-                        <segue destination="4gm-jC-PfE" kind="presentation" identifier="loginSegue" id="flt-BO-NIv"/>
+                        <segue destination="jK8-D5-h8O" kind="presentation" identifier="loginSegue" id="zb2-Dx-nSH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppx-Tm-1dh">
-                                <rect key="frame" x="10" y="80" width="580" height="446"/>
+                                <rect key="frame" x="10" y="10" width="580" height="516"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="120" id="qm4-uB-etl" customClass="TweetTableViewCell" customModule="wefsixtwitter" customModuleProvider="target">
@@ -192,7 +192,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.97254901959999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ppx-Tm-1dh" firstAttribute="top" secondItem="jeW-hQ-OuK" secondAttribute="top" constant="80" id="CXe-z5-R8y"/>
+                            <constraint firstItem="Ppx-Tm-1dh" firstAttribute="top" secondItem="jeW-hQ-OuK" secondAttribute="top" constant="10" id="CXe-z5-R8y"/>
                             <constraint firstItem="cqX-WY-ksf" firstAttribute="top" secondItem="Ppx-Tm-1dh" secondAttribute="bottom" constant="10" id="QVq-Eg-90i"/>
                             <constraint firstItem="Ppx-Tm-1dh" firstAttribute="leading" secondItem="jeW-hQ-OuK" secondAttribute="leading" constant="10" id="Rdg-ud-jMN"/>
                             <constraint firstAttribute="trailing" secondItem="Ppx-Tm-1dh" secondAttribute="trailing" constant="10" id="k3J-YR-tEy"/>
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB3-cj-BNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="475"/>
+            <point key="canvasLocation" x="3315" y="460"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="m7D-i8-3op">
@@ -368,6 +368,80 @@
             </objects>
             <point key="canvasLocation" x="461" y="480"/>
         </scene>
+        <!--Mentions View Controller-->
+        <scene sceneID="crX-RS-AHl">
+            <objects>
+                <viewController storyboardIdentifier="Mentions" id="3NK-wl-erM" customClass="MentionsViewController" customModule="wefsixtwitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="24j-Ua-GgP"/>
+                        <viewControllerLayoutGuide type="bottom" id="lUO-FI-sHZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7hb-5E-Zv1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do I Appear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxy-Xd-bAv">
+                                <rect key="frame" x="255" y="289" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.61801433890000002" green="1" blue="0.5957800727" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cxy-Xd-bAv" firstAttribute="centerX" secondItem="7hb-5E-Zv1" secondAttribute="centerX" id="Cgw-bx-nw1"/>
+                            <constraint firstItem="Cxy-Xd-bAv" firstAttribute="centerY" secondItem="7hb-5E-Zv1" secondAttribute="centerY" id="Opg-RR-Xi4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAG-iw-Jhc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2006" y="-183"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="UQ2-Rg-2xz">
+            <objects>
+                <viewController id="jK8-D5-h8O" customClass="ContainerViewController" customModule="wefsixtwitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bTc-Vt-Ouv"/>
+                        <viewControllerLayoutGuide type="bottom" id="i0G-rZ-JSw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2np-yH-CeF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-8x-isw">
+                                <rect key="frame" x="47" y="0.0" width="553" height="600"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVj-Q2-tpL">
+                                <rect key="frame" x="0.0" y="0.0" width="47" height="600"/>
+                                <color key="backgroundColor" red="0.26561643369999999" green="0.67123252470000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="zRf-mQ-fHY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fbu-8x-isw" firstAttribute="top" secondItem="2np-yH-CeF" secondAttribute="top" id="1Qt-KD-5GI"/>
+                            <constraint firstItem="i0G-rZ-JSw" firstAttribute="top" secondItem="Fbu-8x-isw" secondAttribute="bottom" id="Aba-pY-VVD"/>
+                            <constraint firstItem="kVj-Q2-tpL" firstAttribute="top" secondItem="2np-yH-CeF" secondAttribute="top" id="Fbd-nx-pfF"/>
+                            <constraint firstItem="Fbu-8x-isw" firstAttribute="leading" secondItem="kVj-Q2-tpL" secondAttribute="trailing" id="Gch-43-jKi"/>
+                            <constraint firstItem="i0G-rZ-JSw" firstAttribute="top" secondItem="kVj-Q2-tpL" secondAttribute="bottom" id="HwU-KO-M4X"/>
+                            <constraint firstAttribute="trailing" secondItem="Fbu-8x-isw" secondAttribute="trailing" id="jYa-jB-TZT"/>
+                            <constraint firstItem="kVj-Q2-tpL" firstAttribute="leading" secondItem="2np-yH-CeF" secondAttribute="leading" id="wmv-op-INh"/>
+                            <constraint firstItem="Fbu-8x-isw" firstAttribute="leading" secondItem="kVj-Q2-tpL" secondAttribute="trailing" id="z3K-DP-bwy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="Fbu-8x-isw" id="859-Qg-XeT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XbI-o7-IFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="480"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ehx-7t-faf">
             <objects>
@@ -387,11 +461,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7f-89-Sgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2032" y="475"/>
+            <point key="canvasLocation" x="2684" y="466"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zvt-oe-ahF"/>
+        <segue reference="VY7-dg-Wdb"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.26561643369999999" green="0.67123252470000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

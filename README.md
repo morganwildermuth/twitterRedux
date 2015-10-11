@@ -1,6 +1,6 @@
 ## Twitter Redux
 
-Time spent: `<Number of hours spent>`
+Time spent: `2 hrs`
 
 ### Features
 
@@ -8,8 +8,8 @@ Time spent: `<Number of hours spent>`
 
 - [ ] Hamburger menu
    - [ ] Dragging anywhere in the view should reveal the menu.
-   - [ ] The menu should include links to your profile, the home timeline, and the mentions view.
-   - [ ] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+   - [x] The menu should include links to your profile, the home timeline, and the mentions view.
+   - [x] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
 - [ ] Profile page
    - [ ] Contains the user header view
    - [ ] Contains a section with the users basic stats: # tweets, # following, # followers

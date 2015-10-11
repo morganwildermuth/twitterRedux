@@ -411,10 +411,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVj-Q2-tpL">
-                                <rect key="frame" x="0.0" y="64" width="47" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="200" height="536"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1U4-q3-wlh">
-                                        <rect key="frame" x="8" y="226" width="30" height="30"/>
+                                        <rect key="frame" x="85" y="221" width="30" height="30"/>
                                         <state key="normal" title="T">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -422,17 +422,8 @@
                                             <action selector="onTapTimelineButton:" destination="jK8-D5-h8O" eventType="touchUpInside" id="ReP-OS-HgU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylj-Ni-rYe">
-                                        <rect key="frame" x="8" y="401" width="30" height="30"/>
-                                        <state key="normal" title="M">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onTapMentionsButton:" destination="jK8-D5-h8O" eventType="touchUpInside" id="nSa-pt-alQ"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hM6-71-dMn">
-                                        <rect key="frame" x="8" y="122" width="30" height="30"/>
+                                        <rect key="frame" x="85" y="120" width="30" height="30"/>
                                         <state key="normal" title="P">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -440,14 +431,23 @@
                                             <action selector="onTapProfileButton:" destination="jK8-D5-h8O" eventType="touchUpInside" id="6Da-V5-0gX"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylj-Ni-rYe">
+                                        <rect key="frame" x="85" y="327" width="30" height="30"/>
+                                        <state key="normal" title="M">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapMentionsButton:" destination="jK8-D5-h8O" eventType="touchUpInside" id="nSa-pt-alQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="zRf-mQ-fHY"/>
+                                    <constraint firstAttribute="width" constant="200" id="zRf-mQ-fHY"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-8x-isw">
-                                <rect key="frame" x="47" y="64" width="553" height="536"/>
+                                <rect key="frame" x="200" y="64" width="400" height="536"/>
                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -481,6 +481,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="Fbu-8x-isw" id="859-Qg-XeT"/>
+                        <outlet property="containerViewWidthConstraint" destination="zRf-mQ-fHY" id="NfV-rQ-CfP"/>
                         <outlet property="menuView" destination="kVj-Q2-tpL" id="AhD-GO-CHW"/>
                     </connections>
                 </viewController>

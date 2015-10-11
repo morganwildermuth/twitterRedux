@@ -10,6 +10,7 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
+    @IBOutlet weak var containerViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var containerView: UIView!
     var menuCenter: CGPoint?
@@ -21,6 +22,11 @@ class ContainerViewController: UIViewController {
     var viewControllerIds = ["Profile", "Tweets", "Mentions"]
     
 
+    override func viewWillAppear(animated: Bool) {
+        self.view.setNeedsLayout()
+        self.containerViewWidthConstraint.constant = 0
+        self.view.layoutIfNeeded()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 102.0/255, green: 204.0/255.0, blue: 255.0/255.0, alpha: 1)
@@ -48,44 +54,25 @@ class ContainerViewController: UIViewController {
     }
     
     @IBAction func onPanContainerView(sender: AnyObject) {
-        // Absolute (x,y) coordinates in parent view (parentView should be
-        // the parent view of the tray)
-        
         let panGestureRecognizer = sender
-//        let point = panGestureRecognizer.locationInView(sender.view?.superview)
-//        let translation = panGestureRecognizer.translationInView(sender.superview)
-//
         if panGestureRecognizer.state == UIGestureRecognizerState.Began {
-            // menu
-            // y starts at 400
-            // x starts at 23.5
-            //container
-            // y starts at 400
-            // x starts at 230.5
-            
-            menuCenter = menuView.center
+            self.view.setNeedsLayout()
+
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
             let velocity = sender.velocityInView(sender.view)
-            var currentMenuCenter: CGFloat
-            var currentContainerCenter: CGFloat
-            
+
             if velocity.x > 0.0 {
                 print("velocity was above 0")
-                currentMenuCenter = CGFloat(30.0)
-                currentContainerCenter = CGFloat(237.0)
+                self.containerViewWidthConstraint.constant = 300
             } else {
                 print("velocity was below 0")
-                currentMenuCenter = CGFloat(23.5)
-                currentContainerCenter = CGFloat(230.5)
+                self.containerViewWidthConstraint.constant = 0
             }
             
-            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-                self.menuView.center = CGPoint(x: currentMenuCenter, y: self.menuCenter!.y)
-                }, completion: { (Bool) -> Void in })
+            UIView.animateWithDuration(1, animations: { () -> Void in
+                self.view.layoutIfNeeded()
+            })
             
-            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-                self.containerView.center = CGPoint(x: currentContainerCenter, y: self.menuCenter!.y)
-                }, completion: { (Bool) -> Void in })
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Ended {
         }
     }

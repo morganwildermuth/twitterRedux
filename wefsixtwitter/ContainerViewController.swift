@@ -13,6 +13,7 @@ class ContainerViewController: UIViewController {
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var containerView: UIView!
     var menuCenter: CGPoint?
+    var containerViewCenter: CGPoint?
     let tweetsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Tweets")
     let mentionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Mentions")
     
@@ -55,46 +56,37 @@ class ContainerViewController: UIViewController {
 //        let translation = panGestureRecognizer.translationInView(sender.superview)
 //
         if panGestureRecognizer.state == UIGestureRecognizerState.Began {
+            // menu
             // y starts at 400
             // x starts at 23.5
+            //container
+            // y starts at 400
+            // x starts at 230.5
             
             menuCenter = menuView.center
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
             let velocity = sender.velocityInView(sender.view)
             var currentMenuCenter: CGFloat
+            var currentContainerCenter: CGFloat
             
             if velocity.x > 0.0 {
                 print("velocity was above 0")
-                currentMenuCenter = CGFloat(25.0)
+                currentMenuCenter = CGFloat(30.0)
+                currentContainerCenter = CGFloat(237.0)
             } else {
                 print("velocity was below 0")
                 currentMenuCenter = CGFloat(23.5)
+                currentContainerCenter = CGFloat(230.5)
             }
             
             UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                 self.menuView.center = CGPoint(x: currentMenuCenter, y: self.menuCenter!.y)
                 }, completion: { (Bool) -> Void in })
-        
-//            print("y  at: \(self.menuCenter!.y)")
-//            print("x  at: \(self.menuCenter!.x)")
-//            print("center is \(self.menuView.center)")
-//            trayView.center = CGPoint(x: trayCenter!.x,
-//                y: trayCenter!.y + translation.y)
+            
+            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+                self.containerView.center = CGPoint(x: currentContainerCenter, y: self.menuCenter!.y)
+                }, completion: { (Bool) -> Void in })
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Ended {
-//            print("Gesture ended at: \(point)")
-//            let velocity = sender.velocityInView(sender.view)
-//            var currentTrayCenter: CGFloat
-//            if velocity.y > 0.0 {
-//                currentTrayCenter = CGFloat(650)
-//            } else {
-//                currentTrayCenter = CGFloat(445)
-//                
-//            }
-//            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-//                self.trayView.center = CGPoint(x: self.trayCenter!.x, y: currentTrayCenter)
-//                }, completion: { (Bool) -> Void in
-//                    
-//            })
         }
     }
         

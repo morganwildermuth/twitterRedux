@@ -53,14 +53,14 @@ class ContainerViewController: UIViewController {
         selectedViewController = viewController
     }
     
-    @IBAction func onPanContainerView(sender: AnyObject) {
+    @IBAction func onPanRootView(sender: UIPanGestureRecognizer) {
         let panGestureRecognizer = sender
         if panGestureRecognizer.state == UIGestureRecognizerState.Began {
             self.view.setNeedsLayout()
-
+            
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
             let velocity = sender.velocityInView(sender.view)
-
+            
             if velocity.x > 0.0 {
                 print("velocity was above 0")
                 self.containerViewWidthConstraint.constant = 300

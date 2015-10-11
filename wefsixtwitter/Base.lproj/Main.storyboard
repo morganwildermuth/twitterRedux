@@ -450,12 +450,10 @@
                                 <rect key="frame" x="200" y="64" width="400" height="536"/>
                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="IBT-rO-0gb" appends="YES" id="mE6-vO-Iki"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Fbu-8x-isw" firstAttribute="top" secondItem="2np-yH-CeF" secondAttribute="top" id="1Qt-KD-5GI"/>
                             <constraint firstItem="i0G-rZ-JSw" firstAttribute="top" secondItem="Fbu-8x-isw" secondAttribute="bottom" id="Aba-pY-VVD"/>
@@ -474,6 +472,9 @@
                                 <exclude reference="1Qt-KD-5GI"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nwl-4b-xz3" appends="YES" id="9hC-Dd-ibv"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Xgb-hS-mr7">
                         <barButtonItem key="leftBarButtonItem" title="🚪" id="65E-3S-Mx5"/>
@@ -486,9 +487,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbI-o7-IFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="IBT-rO-0gb">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="nwl-4b-xz3">
                     <connections>
-                        <action selector="onPanContainerView:" destination="jK8-D5-h8O" id="DrH-li-V21"/>
+                        <action selector="onPanRootView:" destination="jK8-D5-h8O" id="tbN-vr-zEB"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

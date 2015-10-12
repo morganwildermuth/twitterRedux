@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wefsixtwitter/ContainerViewController.swift"
-            timestampString = "466306584.222665"
+            timestampString = "466307108.838452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "onPanRootView(_:)"
             landmarkType = "5">
          </BreakpointContent>

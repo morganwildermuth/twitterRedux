@@ -16,7 +16,7 @@ class ContainerViewController: UIViewController, TweetsViewControllerDelegate{
     var menuCenter: CGPoint?
     var containerViewCenter: CGPoint?
     var selectedViewController: UIViewController?
-    var viewControllerIds = ["Profile", "Tweets", "Mentions"]
+    var viewControllerIds = ["Profile", "Tweets", "Mentions", "Tweet"]
     
 
     override func viewWillAppear(animated: Bool) {
@@ -57,9 +57,6 @@ class ContainerViewController: UIViewController, TweetsViewControllerDelegate{
     }
     
     func tweetsViewControllerOpenUserProfile(tweetCell: TweetTableViewCell) {
-        print("got here 3")
-        print(tweetCell.tweet?.user)
-        print(tweetCell.tweet?.user!.name)
         self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[0]), user: tweetCell.tweet?.user)
     }
     
@@ -97,6 +94,14 @@ class ContainerViewController: UIViewController, TweetsViewControllerDelegate{
     
     @IBAction func onTapMentionsButton(sender: AnyObject) {
         self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[2]), user: nil)
+    }
+    
+    @IBAction func onTapLogout(sender: UIBarButtonItem) {
+        User.currentUser?.logout()
+    }
+
+    @IBAction func onTapTweet(sender: UIBarButtonItem) {
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[3]), user: nil)
     }
     /*
     // MARK: - Navigation

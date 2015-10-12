@@ -58,11 +58,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cqX-WY-ksf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jeW-hQ-OuK">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppx-Tm-1dh">
-                                <rect key="frame" x="10" y="10" width="580" height="516"/>
+                                <rect key="frame" x="10" y="10" width="580" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="120" id="qm4-uB-etl" customClass="TweetTableViewCell" customModule="wefsixtwitter" customModuleProvider="target">
@@ -235,23 +235,23 @@
         <!--Post View Controller-->
         <scene sceneID="m7D-i8-3op">
             <objects>
-                <viewController id="6Q2-k2-8BD" customClass="PostViewController" customModule="wefsixtwitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tweet" id="6Q2-k2-8BD" customClass="PostViewController" customModule="wefsixtwitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OkY-Es-b5u"/>
                         <viewControllerLayoutGuide type="bottom" id="Y8Q-RX-Jkh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rXJ-w1-Xjb">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXK-vk-D8L">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXK-vk-D8L">
                                 <rect key="frame" x="279" y="368" width="42" height="30"/>
                                 <state key="normal" title="Tweet"/>
                                 <connections>
                                     <action selector="onTapTweet:" destination="6Q2-k2-8BD" eventType="touchUpInside" id="1US-Zx-RYb"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cVn-HR-8AU">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Write here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cVn-HR-8AU">
                                 <rect key="frame" x="20" y="243" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vgT-3s-sDQ"/>
@@ -295,27 +295,27 @@
                         <viewControllerLayoutGuide type="bottom" id="ONk-o4-07J"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3ka-0R-gPS">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxS-d6-c1S">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxS-d6-c1S">
                                 <rect key="frame" x="8" y="253" width="55" height="30"/>
                                 <state key="normal" title="Favorite"/>
                                 <connections>
                                     <action selector="onFavorite:" destination="sNp-jO-DV9" eventType="touchUpInside" id="s88-A1-qgn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXZ-JX-sgo">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXZ-JX-sgo">
                                 <rect key="frame" x="8" y="383" width="39" height="30"/>
                                 <state key="normal" title="Reply"/>
                                 <connections>
                                     <action selector="onReply:" destination="sNp-jO-DV9" eventType="touchUpInside" id="WXC-5l-kEe"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHK-MR-rBw">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHK-MR-rBw">
                                 <rect key="frame" x="74" y="0.0" width="526" height="536"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAD-SZ-CRV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tweet" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAD-SZ-CRV">
                                         <rect key="frame" x="236" y="256" width="55" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="MLj-Y5-bZo"/>
@@ -331,7 +331,7 @@
                                     <constraint firstItem="gAD-SZ-CRV" firstAttribute="centerX" secondItem="sHK-MR-rBw" secondAttribute="centerX" id="d8A-ck-s4g"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuN-is-R3b">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuN-is-R3b">
                                 <rect key="frame" x="8" y="123" width="56" height="30"/>
                                 <state key="normal" title="Retweet"/>
                                 <connections>
@@ -515,8 +515,16 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Xgb-hS-mr7">
-                        <barButtonItem key="leftBarButtonItem" title="🚪" id="65E-3S-Mx5"/>
-                        <barButtonItem key="rightBarButtonItem" title="📝" id="w2s-z8-vu9"/>
+                        <barButtonItem key="leftBarButtonItem" title="🚪" id="65E-3S-Mx5">
+                            <connections>
+                                <action selector="onTapLogout:" destination="jK8-D5-h8O" id="ZjI-EU-oZo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="📝" id="w2s-z8-vu9">
+                            <connections>
+                                <action selector="onTapTweet:" destination="jK8-D5-h8O" id="7wy-Kx-0vL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="Fbu-8x-isw" id="859-Qg-XeT"/>
@@ -556,7 +564,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2lg-pr-iMK">
-                                        <rect key="frame" x="276" y="76" width="48" height="48"/>
+                                        <rect key="frame" x="8" y="144" width="48" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="5HQ-f0-sGh"/>
                                             <constraint firstAttribute="height" constant="48" id="vFH-M3-NKW"/>
@@ -566,6 +574,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Llz-pB-uL5" firstAttribute="centerX" secondItem="noX-Do-tLW" secondAttribute="centerX" id="15O-Uj-slX"/>
+                                    <constraint firstAttribute="bottom" secondItem="2lg-pr-iMK" secondAttribute="bottom" constant="8" id="8hr-Ia-YT4"/>
+                                    <constraint firstItem="2lg-pr-iMK" firstAttribute="leading" secondItem="noX-Do-tLW" secondAttribute="leading" constant="8" id="9PT-fZ-ZUu"/>
                                     <constraint firstAttribute="width" constant="600" id="Dbu-Es-yj1"/>
                                     <constraint firstAttribute="height" constant="128" id="DgV-Du-7Dx"/>
                                     <constraint firstAttribute="height" constant="200" id="dJq-fd-9yQ"/>
@@ -577,6 +587,8 @@
                                     <mask key="constraints">
                                         <exclude reference="Dbu-Es-yj1"/>
                                         <exclude reference="DgV-Du-7Dx"/>
+                                        <exclude reference="knW-CJ-I2O"/>
+                                        <exclude reference="x0e-5I-Kxo"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -659,27 +671,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZY-Ft-wN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2640" y="-183"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ehx-7t-faf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4gm-jC-PfE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="jY5-lt-LP7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.26561643369999999" green="0.67123252470000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Odh-Tw-Qc1" kind="relationship" relationship="rootViewController" id="qa9-8d-fWv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U7f-89-Sgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3496" y="466"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ufv-6S-rE2">

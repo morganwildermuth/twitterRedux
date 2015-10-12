@@ -51,8 +51,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tweetTableViewCellOpenUserProfile(tweetCell: TweetTableViewCell) {
-        print("got here2")
-        print(tweetCell.tweet?.user!.name)
         delegate?.tweetsViewControllerOpenUserProfile?(tweetCell)
     }
     

@@ -27,7 +27,7 @@ class ContainerViewController: UIViewController, TweetsViewControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 102.0/255, green: 204.0/255.0, blue: 255.0/255.0, alpha: 1)
-        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[2]))
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[2]), user: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -37,11 +37,16 @@ class ContainerViewController: UIViewController, TweetsViewControllerDelegate{
     }
     
     
-    func selectViewController(viewController: UIViewController){
+    func selectViewController(viewController: UIViewController, user: User?){
         if let oldViewController = selectedViewController{
             oldViewController.willMoveToParentViewController(nil)
             oldViewController.view.removeFromSuperview()
             oldViewController.removeFromParentViewController()
+        }
+        if let profileUser = user {
+            print("profileuser yes")
+            var currentViewController = viewController as? ProfileViewController
+            currentViewController!.user = profileUser
         }
         self.addChildViewController(viewController)
         viewController.view.frame = self.containerView.bounds
@@ -51,8 +56,11 @@ class ContainerViewController: UIViewController, TweetsViewControllerDelegate{
         selectedViewController = viewController
     }
     
-    func tweetsViewController(tweetsViewController: TweetsViewController) {
-        print("got here to twv")
+    func tweetsViewControllerOpenUserProfile(tweetCell: TweetTableViewCell) {
+        print("got here 3")
+        print(tweetCell.tweet?.user)
+        print(tweetCell.tweet?.user!.name)
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[0]), user: tweetCell.tweet?.user)
     }
     
     @IBAction func onPanRootView(sender: UIPanGestureRecognizer) {
@@ -78,17 +86,17 @@ class ContainerViewController: UIViewController, TweetsViewControllerDelegate{
     }
     
     @IBAction func onTapProfileButton(sender: AnyObject) {
-        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[0]))
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[0]), user: nil)
     }
 
     @IBAction func onTapTimelineButton(sender: AnyObject) {
-        var tweetsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[1]) as? TweetsViewController
+        let tweetsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[1]) as? TweetsViewController
         tweetsController!.delegate = self
-        self.selectViewController(tweetsController!)
+        self.selectViewController(tweetsController!, user: nil)
     }
     
     @IBAction func onTapMentionsButton(sender: AnyObject) {
-        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[2]))
+        self.selectViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(viewControllerIds[2]), user: nil)
     }
     /*
     // MARK: - Navigation

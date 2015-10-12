@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol TweetsViewControllerDelegate {
     optional func tweetsViewController(tweetsViewController: TweetsViewController)
+    optional func tweetsViewControllerOpenUserProfile(tweetCell: TweetTableViewCell)
     
     // too late and tired to implement, but the below is a good idea since then I can do the wee alerts like before
     //    optional func favoriteTweetTableViewCell(tweetCell: TweetTableViewCell)
@@ -51,7 +52,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tweetTableViewCellOpenUserProfile(tweetCell: TweetTableViewCell) {
         print("got here2")
-        delegate?.tweetsViewController?(self)
+        print(tweetCell.tweet?.user!.name)
+        delegate?.tweetsViewControllerOpenUserProfile?(tweetCell)
     }
     
     func refresh(sender: AnyObject){

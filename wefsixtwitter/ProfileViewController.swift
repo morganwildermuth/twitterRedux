@@ -20,7 +20,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        user = User.currentUser
+        print(user)
+        if user == nil {
+            user = User.currentUser
+        }
+        print(user!.name)
         setOutletValues()
 
         // Do any additional setup after loading the view.
@@ -38,8 +42,10 @@ class ProfileViewController: UIViewController {
         tweetsLabel.text = String(tweetCount!)
         followingLabel.text = String(followingCount!)
         followersLabel.text = String(followersCount!)
-        setHeaderImageView()
         setProfileImage()
+        if let _ = user?.profileBannerImageUrl {
+            setHeaderImageView()
+        }
         
 //        var profileBackgroundImageUrl: String?
     }

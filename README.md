@@ -1,6 +1,6 @@
 ## Twitter Redux
 
-Time spent: `6 hrs`
+Time spent: `8 hrs`
 
 ### Features
 
@@ -13,8 +13,8 @@ Time spent: `6 hrs`
 - [x] Profile page
    - [x] Contains the user header view
    - [x] Contains a section with the users basic stats: # tweets, # following, # followers
-- [ ] Home Timeline
-   - [ ] Tapping on a user image should bring up that user's profile page
+- [x] Home Timeline
+   - [x] Tapping on a user image should bring up that user's profile page
 
 #### Optional
 

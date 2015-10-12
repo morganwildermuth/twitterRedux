@@ -43,7 +43,6 @@ class TweetTableViewCell: UITableViewCell {
 
     @IBAction func onTapUserImage(sender: AnyObject) {
        //we want to say, hey, you, ContainerViewController, handle this specific selectViewController
-        print("got here 1")
         delegate?.tweetTableViewCellOpenUserProfile?(self)
     }
     

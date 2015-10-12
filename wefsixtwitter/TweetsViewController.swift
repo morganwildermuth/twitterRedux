@@ -22,6 +22,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
     var tweets: [Tweet]?
     var refreshControl: UIRefreshControl!
+    var mode: String?
     weak var delegate: TweetsViewControllerDelegate?
     
     @IBOutlet weak var tweetTable: UITableView!
@@ -109,13 +110,24 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     private func loadData(){
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: {(tweets, error) -> () in
-            self.tweets = tweets
-            self.tweetTable.reloadData()
-            self.refreshControl.endRefreshing()
-//            self.tweetTable.rowHeight = UITableViewAutomaticDimension
-//            self.tweetTable.estimatedRowHeight = 400
-        })
+        if mode == "Mentions" {
+            TwitterClient.sharedInstance.mentionsTimelineWithParams(nil, completion: {(tweets, error) -> () in
+                self.tweets = tweets
+                self.tweetTable.reloadData()
+                self.refreshControl.endRefreshing()
+                //            self.tweetTable.rowHeight = UITableViewAutomaticDimension
+                //            self.tweetTable.estimatedRowHeight = 400
+            })
+        } else {
+            TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: {(tweets, error) -> () in
+                self.tweets = tweets
+                self.tweetTable.reloadData()
+                self.refreshControl.endRefreshing()
+                //            self.tweetTable.rowHeight = UITableViewAutomaticDimension
+                //            self.tweetTable.estimatedRowHeight = 400
+            })
+        }
+
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

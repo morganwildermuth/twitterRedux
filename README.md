@@ -1,6 +1,6 @@
 ## Twitter Redux
 
-Time spent: `8 hrs`
+Time spent: `9 hrs`
 
 ### Features
 
@@ -27,6 +27,15 @@ Time spent: `8 hrs`
    - [ ] Tap account to switch to
    - [ ] Include a plus button to Add an Account
    - [ ] Swipe to delete an account
+
+### Notes
+
+- purposefuly just did the MVP this time around since work required sig more weekend labor than the norm; bizarrely there was no requirement to actually create the mentions page? Since it was just review to do so I assume it was on purpose; if it was supposed to be a requirement, apologies.
+
+###Questions 
+
+- I don't know if there was a more "correct" way with the container view design pattern to get tapping the user image on the tweet cell to open the profile page. The review on the last project suggested that having controller within the tweet cell itself was good, but I ended up using a chain of delegates to get the TweetCell object up to the menu controller (container controller; poor early naming choice). What would be the "best" way to go about this generally speaking?
+- This particular app basically uses the container view design with the "Storyboard" workflow of the TweetsViewController, TweetViewController, and PostViewController + solo ProfileViewController + solo MentionsViewController. Generally speaking, it seems as if there'd be specific storyboard workflows for related functionality and then a storyboard for the menu + solo views. Does that sound right? Are there any resources for broad architecture/management of multi-storyboard applications that you would suggest? 
 
 ### Walkthrough
 

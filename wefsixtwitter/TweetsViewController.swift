@@ -31,7 +31,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tweetTable.delegate = self
         tweetTable.dataSource = self
         self.automaticallyAdjustsScrollViewInsets = false
-        self.navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
         loadData()
         setupRefreshController()
 

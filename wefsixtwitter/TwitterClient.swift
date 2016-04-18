@@ -128,7 +128,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             })
             
         }, failure: { (error: NSError!) -> Void in
-            print("failed to recieve access token")
+            print("failed to receive access token")
             self.loginCompletion?(user: nil, error: error)
         })
 

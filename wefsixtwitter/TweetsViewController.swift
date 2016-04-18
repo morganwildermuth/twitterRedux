@@ -69,7 +69,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             cell.preservesSuperviewLayoutMargins = false
         }
         
-        // Explictly set your cell's layout margins
+        // Explicitly set your cell's layout margins
         if cell.respondsToSelector("setLayoutMargins:") {
             cell.layoutMargins = UIEdgeInsetsZero
         }
